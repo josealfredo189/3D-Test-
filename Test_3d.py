@@ -1,7 +1,10 @@
+"""
+Programa de interseccion en 3D
+Autor: Jose Alfredo Lopez Hernandez
+Num. control: 18390045
+"""
 import numpy as np
 import matplotlib.pyplot as plt
-#import functions tools3D
-#import tools3d as tools
 
 #---Coordenadas generales
 xg=[]
