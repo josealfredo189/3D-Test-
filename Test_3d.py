@@ -133,3 +133,11 @@ while True:
                 zg.append(z[i]+zc)
 
             plotSquareLinex(xc,yc,zc)
+            
+            #Limpia las variables generales
+            j=0
+            while j< 4:
+                xg.remove(xg[0])
+                yg.remove(yg[0])
+                zg.remove(zg[0])
+                j+=1
