@@ -17,31 +17,27 @@ yc = 40
 zc = 40
 
 #----Coordinates locales
-x=[40, 30, 80, 75]
-y=[60, 10, 60, 45]
+x=[40, 30, 80, 0]
+y=[60, 10, 60, 0]
 z=[ 0,  0,  0,  0]
-
-for i in range(len(x)):
-    xg.append(x[i] + xc)
-    yg.append(y[i] + yc)
-    zg.append(z[i] + zc)
 
 #Plotea las lineas del triangulo
 def plotPlaneLine(xg,yg,zg):
-    plt.axis([50,250,150,0])
+    plt.axis([80,250,120,20])
     plt.grid()
+    #Plotea el plano: el triangulo 
     plt.plot([xg[0],xg[1]],[yg[0],yg[1]],color='k')
     plt.plot([xg[1],xg[2]],[yg[1],yg[2]],color='k')
     plt.plot([xg[2],xg[0]],[yg[2],yg[0]],color='k')
+    #plotea el punto
     plt.scatter(xg[3],yg[3],s=20,color='r')
-
     #----interseccion de los triangulos 
     plt.plot([xg[0],xg[3]],[yg[0],yg[3]],color='r',linestyle=':')
     plt.plot([xg[1],xg[3]],[yg[1],yg[3]],color='r',linestyle=':')
     plt.plot([xg[2],xg[3]],[yg[2],yg[3]],color='r',linestyle=':')
 
-    plt.gca().set_aspect('equal')
-    plt.show()
+    plt.gca().set_aspect('equal')#iguala la grafica
+    plt.show()#muestra la grafica
 
 def hitPoint(x,y,z):
     #Distancia del punto 0 al 1
@@ -49,31 +45,26 @@ def hitPoint(x,y,z):
     b = y[1]-y[0]
     c = z[1]-z[0]
     Q01 = np.sqrt(a*a+b*b+c*c)
-
     #Distancia del punto 1 al 2
     a = x[2]-x[1]
     b = y[2]-y[1]
     c = z[2]-z[1]
     Q12 = np.sqrt(a*a+b*b+c*c)
-   
     #Distancia del punto 0 al 2
     a = x[2]-x[0]
     b = y[2]-y[0]
     c = z[2]-z[0]
     Q02 = np.sqrt(a*a+b*b+c*c)
-    
     #Distancia del punto 1 al 3
     a = x[3]-x[1]
     b = y[3]-y[1]
     c = z[3]-z[1]
     Q13 = np.sqrt(a*a+b*b+c*c)
-
     #Distancia del punto 2 al 3
     a = x[2]-x[3]
     b = y[2]-y[3]
     c = z[2]-z[3]
     Q23 = np.sqrt(a*a+b*b+c*c)
-
     #Distancia del punto 0 al 3
     a = x[0]-x[3]
     b = y[0]-y[3]
@@ -121,7 +112,6 @@ def plotSquareLinex(xc,yc,zc):
     plt.text(187,90,A2,color='k')
     
     plotPlaneLine(xg,yg,zg)
-
 
 #Pide el hitpoint x, y o el numeoro de control
 while True:
